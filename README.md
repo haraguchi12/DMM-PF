@@ -21,7 +21,15 @@
 ### 主な利用シーン
 観光の計画を考えている、現地で観光している時
 
-## 設計書
+## 設計書  
+・詳細設計  
+https://drive.google.com/file/d/1EDbKd6dbGcTOzVjbx25hzQfZ03R5B-A-/view?usp=sharing  
+・ワイヤーフレーム  
+https://drive.google.com/file/d/1rSS2HCilrn_p334QKtEyQb3fvq7cehsj/view?usp=sharing  
+・ER図  
+https://drive.google.com/file/d/1yCreOKRe7hdJmcwEOWCgu0JDpAqsdqJt/view?usp=sharing  
+・テーブル定義書  
+https://docs.google.com/spreadsheets/d/1-dAbaBXKpHWXGV34inmAnt5258jdtp3VvgbNwOfqXIM/edit?usp=sharing
 
 
 ## チャレンジ要素一覧
