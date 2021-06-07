@@ -3,7 +3,8 @@
         "@tabSize": 2
     },
     "extensions": {
-        "@aws.profile": "profile:default"
+        "@aws.profile": "profile:default",
+        "@git.autofetch": true
     },
     "general": {
         "@stripws": true
