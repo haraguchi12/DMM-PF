@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  #deviseの設定
+   devise_for :stores, path:'store', controllers: {
+    sessions: 'store/registrations',
+    registrations: 'store/registrations'
+}
+  devise_for :users, path: 'user', controllers: {
+    sessions: 'user/sessions'
+  }
+
   get 'stores/show'
   get 'stores/edit'
   get 'stores/create'
@@ -24,7 +33,6 @@ Rails.application.routes.draw do
   get 'users/withdraw'
   get 'homes/top'
   get 'homes/about'
-  devise_for :stores
-  devise_for :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
