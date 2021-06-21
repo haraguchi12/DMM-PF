@@ -1,11 +1,11 @@
 <div class="container mx-4 justify-content-center">
   <div class="row">
-    <div class="d-block w-40" style="background-color: #dddddd;">
+    <div class="d-block w-40">
      <h2>会員新規登録</h2>
     </div>
 </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 <div class="row pt-5">
     <div class="col-12 col-sm-2 offset-sm-1">
     <%= f.label :"メールアドレス" %>
@@ -28,7 +28,7 @@
 
 
   <div class="col-8 offset-4">
-    <%= f.submit "ログイン", class: "btn btn-info mt-4 w-50" %>
+    <%= f.submit "新規登録", class: "btn btn-info mt-4 w-50" %>
   </div>
 <% end %>
 
