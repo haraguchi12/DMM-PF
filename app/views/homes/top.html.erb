@@ -1,7 +1,18 @@
-<%= link_to "店舗新規登録", new_store_registration_path, class: "nav-link" %>
-<%= link_to "店舗ログイン", new_store_session_path, class: "nav-link" %>
+<div class="col-12">
+    <div class="GoogleFonts text-center">
+      <h2>~秩父MAPへようこそ〜</h2>
+  </div>
 
-<%= link_to "会員新規登録", new_user_registration_path, class: "nav-link" %>
-<%= link_to "会員ログイン", new_user_session_path, class: "nav-link" %>
+<div class="col-12 col-sm-12 d-flex flex-wrap justify-content-between mx-auto">
+    <%= link_to "店舗新規登録", new_store_registration_path, class: "nav-link" %>
+    <%= link_to "店舗ログイン", new_store_session_path, class: "nav-link" %>
+    <%= link_to "店舗タイムラインへ", users_path, class: "nav-link" %>
+    <%= link_to "会員新規登録", new_user_registration_path, class: "nav-link" %>
+    <%= link_to "会員ログイン", new_user_session_path, class: "nav-link" %>
 
-<%= link_to "About", about_path, class: "nav-link" %>
+    <%= link_to "About", about_path, class: "nav-link" %>
+  </div>
+</div>
+  <div class="col-12 m-auto d-none d-md-block py-5">
+    <div class="top-image"><%= image_tag 'top-image.jpg' , width: '100%'%></div>
+  </div>
