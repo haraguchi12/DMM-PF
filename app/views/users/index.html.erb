@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h2>タイムライン</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>投稿画像</th>
+      <th>投稿内容</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to store_path(post.store) do %>
+          <%= attachment_image_tag post.store, :image, size: "40x40", format: 'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %>
+          <% end %>
+        </td>
+        <td><%= attachment_image_tag post, :image %></td>
+        <td><%= post.caption %></td>
+        <% if @post.store == current_store %>
+              <td>
+                <%= link_to "編集",edit_post_path(@post.id),class:"btn-sm btn-success" %>
+              </td>
+              <td>
+                <%= link_to "削除", post_path(@post.id), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %>
+              </td>
+            <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
