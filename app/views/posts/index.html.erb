@@ -17,7 +17,7 @@
         </td>
         <td><%= attachment_image_tag post, :image %></td>
         <td><%= post.caption %></td>
-        <% if @book.user == current_user %>
+        <% if @post.store == current_store %>
               <td>
                 <%= link_to "編集",edit_post_path(@post.id),class:"btn-sm btn-success" %>
               </td>
@@ -25,7 +25,7 @@
                 <%= link_to "削除", post_path(@post.id), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %>
               </td>
             <% end %>
-        
+
       </tr>
     <% end %>
   </tbody>
