@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       user_path
 
     when Store
-       store_path
+       store_path(resource)
     end
   end
 end

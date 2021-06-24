@@ -4,7 +4,8 @@ class Store < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :post, dependent: :destroy
+         has_many :posts, dependent: :destroy
          has_many :li, dependent: :destroy
+         attachment :image
 end
 

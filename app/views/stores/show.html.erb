@@ -1,15 +1,15 @@
 <table>
     <tbody>
       <tr>
-        <%= attachment_image_tag store, :image, size: "100x100",format: 'jpeg', class: "profile-img", fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @store, :image, size: "100x100",format: 'jpeg', class: "profile-img", fallback: "no_image.jpeg" %>
       </tr>
       <tr>
         <th>店舗名</th>
-        <th><%= store.name %></th>
+        <th><%= @store.name %></th>
       </tr>
       <tr>
         <th>店舗紹介</th>
-        <th><%= store.introduction %></th>
+        <th><%= @store.introduction %></th>
       </tr>
     </tbody>
 </table>

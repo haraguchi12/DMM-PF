@@ -9,8 +9,8 @@
     </div>
   <% end %>
   <h3>新規投稿</h3>
-  
-  <%= form_with model:@post, url:new_post_path, method: :post, local: true do |f| %>
+
+  <%= form_with model: @post, url: new_post_path, method: :post, local: true do |f| %>
     <div class="row py-1 my-1 border-bottom">
       <div class="col-12 col-sm-4 my-1">
         <label class="font-weight-bold m-1">画像</label>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    
+
 
     <div class="row py-1 my-1 border-bottom">
       <div class="col-12 col-sm-4 my-1">
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    
+
     <div class="row py-1 mt-1 mb-5">
       <div class="col my-1">
         <%= f.submit "新規登録", class: 'btn btn-success' %>

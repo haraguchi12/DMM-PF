@@ -24,8 +24,8 @@
             <% if store_signed_in? %>
               <li class="nav-item mx-2"><%= link_to "店舗ページ",store_path(current_store.id) , class: "nav-link" %></li>
               <li class="nav-item mx-2"><%= link_to "新規投稿", new_post_path, class: "nav-link" %></li>
-              <li class="nav-item mx-2"><%= link_to "店舗編集",edit_store_path(@store), class: "nav-link" %></li>
-              <li class="nav-item mx-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
+              <li class="nav-item mx-2"><%= link_to "店舗編集",edit_store_path(current_store.id), class: "nav-link" %></li>
+              <li class="nav-item mx-2"><%= link_to "ログアウト", destroy_store_session_path, method: :delete, class: "nav-link" %></li>
             <% elsif user_signed_in? %>
               <li class="nav-item mx-2"><%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %></li>
               <li class="nav-item mx-2"><%= link_to "店舗投稿一覧", user_path, class: "nav-link" %></li>

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
-    @store = Store.find_by(id: current_store.id)
+
   end
 
   def edit
