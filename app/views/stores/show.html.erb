@@ -1,2 +1,15 @@
-<h1>Stores#show</h1>
-<p>Find me in app/views/stores/show.html.erb</p>
+<table>
+    <tbody>
+      <tr>
+        <%= attachment_image_tag store, :image, size: "100x100",format: 'jpeg', class: "profile-img", fallback: "no_image.jpg" %>
+      </tr>
+      <tr>
+        <th>店舗名</th>
+        <th><%= store.name %></th>
+      </tr>
+      <tr>
+        <th>店舗紹介</th>
+        <th><%= store.introduction %></th>
+      </tr>
+    </tbody>
+</table>

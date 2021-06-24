@@ -11,6 +11,17 @@ class StoresController < ApplicationController
   def create
   end
 
+  def update
+      @store = Store.find(params[:id])
+     if @store.update(store_params)
+       flash[:notice] = "successfully"
+      redirect_to store_path(@store.id)
+     else
+       flash.now[:notice] = ""
+      render :edit
+     end
+  end
+
   def destroy
   end
 
