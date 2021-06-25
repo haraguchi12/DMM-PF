@@ -4,8 +4,10 @@ class Store < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :posts, dependent: :destroy
-         has_many :li, dependent: :destroy
+         has_many :posts, dependent: :destroy  # 店舗/投稿 → 1:多
+
+         belongs_to :user, optional: true
+         has_many :likes, dependent: :destroy  # 店舗/お気に入り → 1:多
          attachment :image
 end
 
