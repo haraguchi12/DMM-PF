@@ -1,10 +1,21 @@
 class LikesController < ApplicationController
-  def index
-  end
+  before_action :set_store
+  before_action :authenticate_user!   # ログイン中のユーザーのみに許可（未ログインなら、ログイン画面へ移動）
 
+  # お気に入り登録
   def create
+    if @store.user_id != current_user.id   # 投稿者本人以外に限定
+      @favorite = Favorite.create(user_id: current_user.id, store_id: @store.id)
+    end
+  end
+  # お気に入り削除
+  def destroy
+    @favorite = Favorite.find_by(user_id: current_user.id, store_id: @store.id)
+    @favorite.destroy
   end
 
-  def destroy
+  private
+  def set_post
+    @post = Post.find(params[:store_id])
   end
 end

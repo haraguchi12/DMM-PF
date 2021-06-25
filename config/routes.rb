@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:create, :update]
 
     #お気に入り
-    resources :likes, only: [:index, :create, :destroy]
+    resources :likes, only: [:create, :destroy]
 
     #投稿
     resources :posts, only: [:new, :index, :edit, :create, :destroy, :update]
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     get '/users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
+    get :favorites, on: :collection
 
     #店舗
     resources :stores, only: [:show, :edit, :update, :destroy]
