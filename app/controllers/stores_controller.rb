@@ -30,4 +30,10 @@ class StoresController < ApplicationController
 
   def withdraw
   end
+
+  private
+
+  def store_params
+    params.require(:store).permit(:name, :image, :introduction)
+  end
 end
