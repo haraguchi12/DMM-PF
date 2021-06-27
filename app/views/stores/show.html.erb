@@ -1,4 +1,4 @@
-<div class="col-12 m-auto d-none d-md-block py-5">
+<div class="col-12 m-auto  d-md-block py-5">
      <%= attachment_image_tag @store, :image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpeg" %>
 </div>
 <table>
@@ -15,7 +15,7 @@
     </tbody>
 </table>
 
-    <h2>タイムライン</h2>
+     <h2>タイムライン</h2>
 <div class="col-10 mx-auto">
   <% @posts.each do |post| %>
   <div class="row justify-content-center">
