@@ -4,18 +4,20 @@ class LikesController < ApplicationController
 
   # お気に入り登録
   def create
-    if @store.user_id != current_user.id   # 投稿者本人以外に限定
-      @favorite = Favorite.create(user_id: current_user.id, store_id: @store.id)
-    end
+    @store = Store.find(params[:store_id])
+   like = @store.favorites.new(user_id: current_user.id)
+   like.save
   end
+  
   # お気に入り削除
   def destroy
-    @favorite = Favorite.find_by(user_id: current_user.id, store_id: @store.id)
-    @favorite.destroy
+    @store = Store.find(params[:store_id])
+   like = @store.favorites.find_by(user_id: current_user.id)
+   like.destroy
   end
 
   private
-  def set_post
-    @post = Post.find(params[:store_id])
+  def set_store
+    @store = Store.find(params[:store_id])
   end
 end

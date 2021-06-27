@@ -1,7 +1,30 @@
-<h2>お気に入り店舗一覧</h2>
-<% if @favorite_list.present? %>
- <% @favorite_list.each do |post| %>
-    <% post.title %>
-    <% post.content %>
- <% end %>
- <% end %>
+<h2 class="text-center">お気に入り店舗一覧</h2>
+ <div class="container">
+   <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>店舗名</th>
+          <th>住所</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if store.liked_by?(current_user) %>
+        <% @like_list.each do |store| %>
+          <tr>
+            <td class="text-left">
+             <%= link_to store_path(store) do %>
+              <% store.name %>
+             <% end %>
+            </td>
+
+            <td class="text-left">
+            <% store.address %>
+            </td>
+           <tr>
+         <% end %>
+      </tbody>
+    </table>
+   </div>
+ </div>
