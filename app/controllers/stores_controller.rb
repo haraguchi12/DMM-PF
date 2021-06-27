@@ -2,6 +2,7 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
     @posts = @store.posts
+
   end
 
   def edit

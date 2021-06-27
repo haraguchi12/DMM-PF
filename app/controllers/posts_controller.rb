@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
    @posts = Post.all
-   
+
   end
 
   def edit
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.store_id = current_store.id
     if @post.save
       flash[:notice] = "successfully"
-      # redirect_to post_path(@post.id)
+       #redirect_to store_path(@store.id)
     else
       @store = Store.find_by(id: current_store.id)
       @posts = Post.all
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post.store_id = current_store.id
     if @post.update(post_params)
       flash[:notice] = "You have updated post successfully."
-       # redirect_to post_path(@post.id)
+        #redirect_to store_path(@store.id)
     else
       @posts = Post.all
       flash.now[:notice] = ""
@@ -40,9 +40,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    post = Post.find(params[:id])
+    store = post.store
+    post.destroy
+    redirect_to store_path(store)
   end
 
   private

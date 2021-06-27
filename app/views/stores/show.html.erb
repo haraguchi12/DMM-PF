@@ -1,8 +1,9 @@
+<div class="col-12 m-auto d-none d-md-block py-5">
+     <%= attachment_image_tag @store, :image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpeg" %>
+</div>
 <table>
     <tbody>
-      <tr>
-        <%= attachment_image_tag @store, :image, size: "100x100",format: 'jpeg', class: "profile-img", fallback: "no_image.jpeg" %>
-      </tr>
+
       <tr>
         <th>店舗名</th>
         <th><%= @store.name %></th>
@@ -13,3 +14,25 @@
       </tr>
     </tbody>
 </table>
+
+    <h2>タイムライン</h2>
+<div class="col-10 mx-auto">
+  <% @posts.each do |post| %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 mb-4">
+      <%= link_to store_path(post.store) do %>
+        <%= attachment_image_tag post, :image, :fill, 500, 400, format: 'jpeg', class: "image-fluid col-12" %>
+      <% end %>
+    </div>
+
+    <div class=" col-11 col-md-6 justify-content-center align-self-center font-weight-bold">
+        <p><%= post.store.name %></p>
+        <p><%= post.caption %></p>
+        <% if @store.id == current_store.id%>
+        <p><%= link_to "編集",edit_post_path(post),class:"btn-sm btn-success" %></p>
+        <p><%= link_to "削除", post_path(post), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></p>
+        <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
