@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.store_id = current_store.id
     if @post.save
-      transcode_image
+      #transcode_image
       flash[:notice] = "successfully"
        #redirect_to store_path(@store.id)
     else
@@ -54,17 +54,17 @@ class PostsController < ApplicationController
   end
 
 
-  def transcode_image
-    img = "#{Rails.root}" + '/tmp/uploads/store/' + @post.image_id
-    new_img = "#{Rails.root}" + '/tmp/uploads/store/transed/' + @post.image_id + '.jpg'
-    `heif-convert "#{img}" "#{new_img}"`
-  
-    while $?.to_s.include?('exit')
-      File.open(new_img, "rb") do |file|
-       @post.image = file
-      end
-      @post.save!
-      break
-    end
-  end
+  #def transcode_image
+    #if @post.image_id + '.heic'
+    #img = "#{Rails.root}" + '/tmp/uploads/store/' + @post.image_id
+    #new_img = "#{Rails.root}" + '/tmp/uploads/store/transed/' + @post.image_id + '.jpg'
+    #`heif-convert "#{img}" "#{new_img}"`
+
+      #File.open(new_img, "rb") do |file|
+       #@post.image = file
+      #end
+      #@post.save!
+      #break
+    #end
+  #end
 end
