@@ -9,7 +9,7 @@
               <label class="font-weight-bold m-1">店舗名</label>
             </div>
               <div class="col my-1">
-               <%= @store.name %>
+               <%= @store.name %> <span id="store_<%= @store.id %>"><%= render "likes/like", store: @store %></span>
               </div>
         </div>
 
@@ -47,13 +47,16 @@
         <p><%= post.caption %></p>
 
         <div class="d-grid gap-2 d-md-flex col-6 mx-auto">
-          <% if @store.id == current_store.id%>
-          <p><%= link_to "編集",edit_post_path(post),class:"btn-sm btn-success" %></p>
-          <p><%= link_to "削除", post_path(post), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></p>
+          <% if store_signed_in?%>
+            <% if post.store.id == current_store.id%>
+              <p><%= link_to "編集",edit_post_path(post),class:"btn-sm btn-success" %></p>
+              <p><%= link_to "削除", post_path(post), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></p>
+            <% end %>
           <% end %>
         </div>
     </div>
   </div>
   <% end %>
+   <div class= "text-center"><%= paginate(@posts) %></div>
 </div>
 
