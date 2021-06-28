@@ -1,7 +1,8 @@
 class StoresController < ApplicationController
   def show
-    @store = Store.find(params[:id])
-    @posts = @store.posts.page(params[:page]).per(5) # ページネーションをつけたいデータに.page(params[:page])を追加 per(10)⇨1ページあたり表示したい数
+    @stores = Store.where(posts: params[:id])
+    @store = @stores.first
+    @posts = Post.where(store_id: @store.id).page(params[:page]).per(5)
   end
 
   def edit

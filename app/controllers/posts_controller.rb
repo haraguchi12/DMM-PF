@@ -18,9 +18,9 @@ class PostsController < ApplicationController
     if @post.save
       #transcode_image
       flash[:notice] = "successfully"
-       #redirect_to store_path(@store.id)
+       redirect_to store_path(@post.store.id)
     else
-      @store = Store.find_by(id: current_store.id)
+      @store = current_store
       @posts = Post.all
       flash.now[:notice] = ""
       # render :index
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     @post.store_id = current_store.id
     if @post.update(post_params)
       flash[:notice] = "You have updated post successfully."
-        #redirect_to store_path(@store.id)
+        redirect_to store_path(@post.store_id)
     else
       @posts = Post.all
       flash.now[:notice] = ""
@@ -66,5 +66,4 @@ class PostsController < ApplicationController
       #@post.save!
       #break
     #end
-  #end
 end

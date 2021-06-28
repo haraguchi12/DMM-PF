@@ -1,7 +1,13 @@
+<% if store_signed_in? %>
+  <i class="fas fa-heart heart_blue">
+    <%= store.likes.count %>
+  </i>
+<% else %>
+
  <% if store.liked_by?(current_user) %>
     <%= link_to store.likes.count, store_likes_path(store), method: :delete , remote: true, class: "fas fa-heart heart_red" %>
   <% else %>
     <%= link_to store.likes.count, store_likes_path(store), method: :post , remote: true, class: "fas fa-heart heart_blue" %>
   <% end %>
-
+<% end %>
 
