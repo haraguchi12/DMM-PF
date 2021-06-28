@@ -1,21 +1,38 @@
 <div class="col-12 m-auto  d-md-block py-5">
      <%= attachment_image_tag @store, :image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpeg" %>
 </div>
-<table>
-    <tbody>
 
-      <tr>
-        <th>店舗名</th>
-        <th><%= @store.name %></th>
-      </tr>
-      <tr>
-        <th>店舗紹介</th>
-        <th><%= @store.introduction %></th>
-      </tr>
-    </tbody>
-</table>
 
-     <h2>タイムライン</h2>
+<div class="col-12 mx-auto">
+  <div class="row py-1 my-1 text-center border-bottom">
+            <div class="col-12 col-sm-4 my-1">
+              <label class="font-weight-bold m-1">店舗名</label>
+            </div>
+              <div class="col my-1">
+               <%= @store.name %>
+              </div>
+        </div>
+
+        <div class="row py-1 my-1 text-center border-bottom">
+            <div class="col-12 col-sm-4 my-1">
+              <label class="font-weight-bold m-1">店舗住所</label>
+            </div>
+              <div class="col my-1">
+               <%= @store.address %>
+              </div>
+        </div>
+
+        <div class="row py-1 my-1 text-center border-bottom">
+            <div class="col-12 col-sm-4 my-1">
+              <label class="font-weight-bold m-1">店舗紹介</label>
+            </div>
+              <div class="col my-1">
+               <%= @store.introduction %>
+              </div>
+        </div>
+</div>
+
+     <h2>店舗最新投稿</h2>
 <div class="col-10 mx-auto">
   <% @posts.each do |post| %>
   <div class="row justify-content-center">
@@ -26,13 +43,17 @@
     </div>
 
     <div class=" col-11 col-md-6 justify-content-center align-self-center font-weight-bold">
-        <p><%= post.store.name %></p>
+        <p><%= post.store.name %>　　　　<%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
         <p><%= post.caption %></p>
-        <% if @store.id == current_store.id%>
-        <p><%= link_to "編集",edit_post_path(post),class:"btn-sm btn-success" %></p>
-        <p><%= link_to "削除", post_path(post), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></p>
-        <% end %>
+
+        <div class="d-grid gap-2 d-md-flex col-6 mx-auto">
+          <% if @store.id == current_store.id%>
+          <p><%= link_to "編集",edit_post_path(post),class:"btn-sm btn-success" %></p>
+          <p><%= link_to "削除", post_path(post), method: :delete, class:"btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></p>
+          <% end %>
+        </div>
     </div>
   </div>
   <% end %>
 </div>
+
