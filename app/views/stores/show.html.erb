@@ -62,3 +62,26 @@
    <div class= "text-center"><%= paginate(@posts) %></div>
 </div>
 
+<div id="map" style='width: 100%; height: 500px;'></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"async defer></script>
+
+<script type="text/javascript">
+  function initMap(){
+
+                            var MyLatLng = new google.maps.LatLng(<%= @store.latitude %>,<%= @store.longitude %> );
+                            var Options = {
+                             zoom: 15,      //地図の縮尺値
+                             center: MyLatLng,    //地図の中心座標
+                             mapTypeId: 'roadmap'   //地図の種類
+                            };
+                            var map = new google.maps.Map(document.getElementById('map'), Options);
+                            var marker = new google.maps.Marker({
+                                  position: MyLatLng,
+                                  map: map
+                            });
+  }
+
+
+
+ </script>
+
